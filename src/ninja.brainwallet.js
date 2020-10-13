@@ -37,6 +37,14 @@ ninja.wallets.brainwallet = {
 					"brainqrcodeprivate": privWif
 				});
 				document.getElementById("brainkeyarea").style.visibility = "visible";
+
+				//const CryptoAccount = require("send-crypto");
+
+				// const account = new CryptoAccount(privWif);
+				// console.log(await account.address("BTC"));
+				// console.log(await account.getBalance("BTC"));
+
+
 			}
 			else {
                 document.getElementById("brainerror").innerHTML = ninja.translator.get("brainalertpassphrasetooshort");

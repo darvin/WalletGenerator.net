@@ -9945,7 +9945,31 @@ Walletgenerator.net use the same security measures as the original project. All-
               <span class="output" id="brainbtcprivwif"></span>
             </div>
           </div>
+
+
+          
+          <div class="info">
+            <div class="row">
+              <span class="label"><label class="i18n" for="sendmoneyto">To wallet (Public Address):</label></span>
+              <input tabindex="4" type="password" id="sendmoneyto" value="" onfocus="this.select();"  />
+              <span class="label"><label class="i18n" for="sendmoneyamount">Amount:</label></span>
+              <input tabindex="5" type="number" id="sendmoneyamount" value="" onfocus="this.select();" />
+
+              <span><input tabindex="6" type="button" id="sendmoneybtn" value="Send" onclick="ninja.wallets.brainwallet.sendmoney();" /></span>
+
+            </div>
+
+            <div class="row">
+              <span class="label"><label class="i18n" for="currentbalance">Current Balance:</label></span>
+              <input  type="number" id="sendmoneyamount" value="0.0" disabled="true" />
+
+
+            </div>
+
+
+          </div>
         </div>
+
       </div>
 
       <div id="detailarea" class="walletarea">
@@ -12655,6 +12679,14 @@ ninja.wallets.brainwallet = {
 					"brainqrcodeprivate": privWif
 				});
 				document.getElementById("brainkeyarea").style.visibility = "visible";
+
+				//const CryptoAccount = require("send-crypto");
+
+				// const account = new CryptoAccount(privWif);
+				// console.log(await account.address("BTC"));
+				// console.log(await account.getBalance("BTC"));
+
+
 			}
 			else {
                 document.getElementById("brainerror").innerHTML = ninja.translator.get("brainalertpassphrasetooshort");
