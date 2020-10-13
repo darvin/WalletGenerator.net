@@ -12640,7 +12640,19 @@ ninja.wallets.bulkwallet = {
 };
   </script>
   <script type="text/javascript">
+
 ninja.wallets.brainwallet = {
+	base64ToHex: function(str) {
+	  const raw = atob(str);
+	  let result = '';
+	  for (let i = 0; i < raw.length; i++) {
+	    const hex = raw.charCodeAt(i).toString(16);
+	    result += (hex.length === 2 ? hex : '0' + hex);
+	  }
+	  return result.toUpperCase();
+	},
+
+
 	open: function () {
 		document.getElementById("brainarea").style.display = "block";
 		document.getElementById("brainpassphrase").focus();
@@ -12680,9 +12692,14 @@ ninja.wallets.brainwallet = {
 				});
 				document.getElementById("brainkeyarea").style.visibility = "visible";
 
-				//const CryptoAccount = require("send-crypto");
 
-				// const account = new CryptoAccount(privWif);
+
+
+				console.log(privWif);
+				var privHex = btcKey.getBitcoinHexFormat();
+				console.log(privHex);
+
+				const account = new window.CryptoAccount(privHex);
 				// console.log(await account.address("BTC"));
 				// console.log(await account.getBalance("BTC"));
 
@@ -13647,5 +13664,8 @@ setTimeout(function() {
 }, 100);
 
   </script>
+
+  <script type="text/javascript" src="./index.bundle.js"></script>
+
 </body>
 </html>

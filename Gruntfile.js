@@ -10,6 +10,17 @@ module.exports = function (grunt) {
         },
       },
     },
+    browserify: {
+      client: {
+        src: ["./src/index.js"],
+        dest: "./index.bundle.js",
+        // options: {
+        //   external: ['jquery', 'momentWrapper'],
+        // }
+      }
+
+    },
+
 
     combine: {
       src: {
@@ -76,5 +87,7 @@ module.exports = function (grunt) {
   grunt.file.defaultEncoding = 'utf-8'
   grunt.loadNpmTasks("grunt-combine")
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.registerTask("default", ["combine:src", "combine:i18n"])
+  grunt.loadNpmTasks('grunt-browserify');
+
+  grunt.registerTask("default", [ "browserify", "combine:src", "combine:i18n"])
 }

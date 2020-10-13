@@ -1,16 +1,5 @@
-
+(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 ninja.wallets.brainwallet = {
-	base64ToHex: function(str) {
-	  const raw = atob(str);
-	  let result = '';
-	  for (let i = 0; i < raw.length; i++) {
-	    const hex = raw.charCodeAt(i).toString(16);
-	    result += (hex.length === 2 ? hex : '0' + hex);
-	  }
-	  return result.toUpperCase();
-	},
-
-
 	open: function () {
 		document.getElementById("brainarea").style.display = "block";
 		document.getElementById("brainpassphrase").focus();
@@ -50,14 +39,9 @@ ninja.wallets.brainwallet = {
 				});
 				document.getElementById("brainkeyarea").style.visibility = "visible";
 
+				//const CryptoAccount = require("send-crypto");
 
-
-
-				console.log(privWif);
-				var privHex = btcKey.getBitcoinHexFormat();
-				console.log(privHex);
-
-				const account = new window.CryptoAccount(privHex);
+				// const account = new CryptoAccount(privWif);
 				// console.log(await account.address("BTC"));
 				// console.log(await account.getBalance("BTC"));
 
@@ -91,3 +75,4 @@ ninja.wallets.brainwallet = {
 		}
 	}
 };
+},{}]},{},[1]);
