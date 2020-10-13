@@ -1,6 +1,16 @@
 module.exports = function (grunt) {
   // Project configuration.
   grunt.initConfig({
+    watch: {
+      scripts: {
+        files: ["./src/*"],
+        tasks: ['combine'],
+        options: {
+          spawn: false,
+        },
+      },
+    },
+
     combine: {
       src: {
         input: "./src/index.html",
@@ -65,5 +75,6 @@ module.exports = function (grunt) {
 
   grunt.file.defaultEncoding = 'utf-8'
   grunt.loadNpmTasks("grunt-combine")
+  grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.registerTask("default", ["combine:src", "combine:i18n"])
 }

@@ -3,7 +3,11 @@ ninja.wallets.brainwallet = {
 		document.getElementById("brainarea").style.display = "block";
 		document.getElementById("brainpassphrase").focus();
 		document.getElementById("brainwarning").innerHTML = ninja.translator.get("brainalertpassphrasewarning");
+		document.getElementById("brainpassphrase").setAttribute("type", "text");
+		document.getElementById("brainpassphraseconfirm").style.visibility = "hidden";
+		document.getElementById("brainlabelconfirm").style.visibility = "hidden";
 	},
+
 
 	close: function () {
 		document.getElementById("brainarea").style.display = "none";

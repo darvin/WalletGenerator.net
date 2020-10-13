@@ -9918,7 +9918,7 @@ Walletgenerator.net use the same security measures as the original project. All-
           <div class="row">
             <span id="brainlabelenterpassphrase" class="label"><label id="brainlabelenterpassphraselbl" class="i18n" for="brainpassphrase">Enter Passphrase: </label></span>
             <input tabindex="1" type="password" id="brainpassphrase" value="" onfocus="this.select();" onkeypress="if (event.keyCode == 13) ninja.wallets.brainwallet.view();" />
-            <span><label id="brainlabelshow" for="brainpassphraseshow">Show?</label> <input type="checkbox" id="brainpassphraseshow" onchange="ninja.wallets.brainwallet.showToggle(this);" /></span>
+            <span><label id="brainlabelshow" for="brainpassphraseshow">Show?</label> <input type="checkbox" id="brainpassphraseshow" onchange="ninja.wallets.brainwallet.showToggle(this);" checked/></span>
             <span class="print"><input type="button" name="print" id="brainprint" value="Print" onclick="window.print();" /></span>
           </div>
           <div class="row extra">
@@ -12621,7 +12621,11 @@ ninja.wallets.brainwallet = {
 		document.getElementById("brainarea").style.display = "block";
 		document.getElementById("brainpassphrase").focus();
 		document.getElementById("brainwarning").innerHTML = ninja.translator.get("brainalertpassphrasewarning");
+		document.getElementById("brainpassphrase").setAttribute("type", "text");
+		document.getElementById("brainpassphraseconfirm").style.visibility = "hidden";
+		document.getElementById("brainlabelconfirm").style.visibility = "hidden";
 	},
+
 
 	close: function () {
 		document.getElementById("brainarea").style.display = "none";
