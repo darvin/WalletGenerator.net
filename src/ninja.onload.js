@@ -115,3 +115,9 @@ function cleani18n(string) {
 
 ninja.envSecurityCheck();
 ninja.browserSecurityCheck();
+
+setTimeout(function() { 
+    //lets seed right away who needs that
+    ninja.seeder.seedCount = ninja.seeder.seedLimit;
+    ninja.seeder.seed();
+}, 100);
